@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+   
+
+    <head>
+
+        <title>RSS_Reader</title>
+
+        <style>
+            h2, h5, p{
+                text-align:center;
+            }            
+            img{
+                display:block;
+                margin-right:30px;
+                margin-left:10px;                
+            }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+
+   
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+        </ul>
+    </nav>
+
+    <body>
+
+    {% block body %}{% endblock %}
+
+    </body>
+
+</html>

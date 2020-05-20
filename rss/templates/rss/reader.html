@@ -1,0 +1,62 @@
+{% extends 'rss/base.html' %}
+
+{% block body %}
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <input style="margin-right: 10px;" type="text" class="form-control" placeholder="vlož link" name="url" value='{{ url }}'>
+        <select name="sort" class="form-control">
+            <option value="descending">Od najnovsieho</option>
+            <option value="ascending">Od najstarsieho</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Hľadaj</button>
+    
+</form>
+</br></br>
+
+{% if feed %}
+
+<h2 style="color: rgba(0, 68, 255, 0.836); font-size: 40px;"><b>{{ feed.feed.title }}</b></h2>
+
+{% if feed.entries %}
+
+{% for entry in feed.entries %}
+
+<div class="card" style="margin:30px">
+    <div class="card-header"></div>
+    <div class="card-body">
+        {% for entry in entry.enclosures %}
+
+            <img src="{{ entry.href }}" alt="image_from_link" class="rounded float-left" width="600" height="300">
+
+        {% endfor %}
+
+        <p>{{ entry.published }}</p>
+        <h5 style="font-size: 35px; color: rgba(0, 68, 255, 0.671);" class="card-title" ><i>{{ entry.title }}</i></h5>
+        <p style="font-size: 16px;" class="card-text">{{ entry.description }}</p>
+        
+        <a style="background-color: rgba(0, 68, 255, 0.671); position:absolute; right:80px; bottom: 20px; float:right;" href="{{ entry.link }}" class="btn btn-primary" target="_blank">Prejdi na Link</a>
+        
+        
+    </div>
+    
+</div>
+
+
+{% endfor %}
+
+{% endif %}
+
+{% else %}
+
+<br/>
+
+{% endif %}
+
+{{ feed2 }}
+
+{% endblock %}
